@@ -81,10 +81,11 @@ unsigned int get_scale(s21_decimal dec){
     unsigned int scale = dec.bits[3] & (shift << 16);
     return scale >> 16;
 }
-
+// Инвертирует всё кроме знака и степени
 void invert_decimal(s21_decimal *value){
-    for (int i = 0; i < 4; i++){
-        value->bits[i] = ~value->bits[i] + 1;
+    value->bits[0] = ~value->bits[0] + 1;
+    for (int i = 1; i < 3; i++){
+        value->bits[i] = ~value->bits[i];
     }
 }
 

@@ -18,7 +18,7 @@ int normalize(s21_decimal *value_1, s21_decimal *value_2){
         {
             error = s21_mul(*value_1, ten, value_1);
         }
-        error = write_scale(value_1, scale_1);
+        error = set_scale(value_1, scale_1);
 
     } 
     else if (difference_scale > 0 && scale_1 < 29)
@@ -28,12 +28,12 @@ int normalize(s21_decimal *value_1, s21_decimal *value_2){
         {
             error = s21_mul(*value_2, ten, value_2);
         }
-        error = write_scale(value_2, scale_2);
+        error = set_scale(value_2, scale_2);
     }
     return error;
 }
 
-int write_scale(s21_decimal *value,unsigned int scale){
+int set_scale(s21_decimal *value,unsigned int scale){
     int error = 0;
     if (scale > 28)
         error = 1;

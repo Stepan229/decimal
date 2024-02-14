@@ -15,6 +15,7 @@ all: s21_decimal
 s21_decimal:
 	$(CC) $(FLAGS) $(LIB_DIR) -o decimal
 	rm -rf *.o
+	./decimal
 
 clean:
 	rm -f *.a *.o *.so *.out $(TESTFILE) *.info *.gcno *.gcda
